@@ -5,6 +5,7 @@ const app = express()
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms :data"))
 app.use(express.json())
 app.use(cors())
+app.use(express.static("dist"))
 
 morgan.token("data", (request, response) => {
   // Not sure if this was the goal, but only log the content of POST requests
@@ -90,7 +91,7 @@ app.delete("/api/persons/:id", (request, response) => {
 })
 
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
