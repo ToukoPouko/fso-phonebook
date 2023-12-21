@@ -1,0 +1,7 @@
+POST https://fso-phonebook-ruvg.onrender.com/api/persons
+Content-Type: application/json
+
+{
+    "name": "Testaaja Tero",
+    "number": 123123
+}
