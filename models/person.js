@@ -25,7 +25,8 @@ const personSchema = new mongoose.Schema({
     minLength: 8,
     validate: {
       validator: (text) => {
-        return /\d{2,3}-\d{0,}/.test(text)
+        console.log(text.match(/\d{2,3}-\d+/))
+        return text.match(/\d{2,3}-\d{0,}/)[0].length === text.length
       }
     }
   }
